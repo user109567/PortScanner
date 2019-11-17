@@ -25,8 +25,8 @@ def checkHost(host, mode, scanFile):
 
 def checkPorts(host, portRange, scanFile, mode):
     portRange = int(portRange)
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     for port in range(1, portRange):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(20)
         result = sock.connect_ex((host, port))
         string = f"Port {port} : open"
